@@ -67,7 +67,7 @@ public class Average extends AppCompatActivity {
             {"NOUN; a book in which words that have the same or similar meanings are grouped together" , "Thesaurus" , "thesorus" , "thesurous" , "thesourus"},
             {"ADJ; happy and lively in a way that is attractive" , "Vivacious" , "vivatious" , "vivateous" , "vivaceous"},
             {"NOUN; a dramatic monologue that represents a series of unspoken reflections" , "Solioquy" , "soliloqui" , "solilocoy" , "soliloquoy"},
-            {"description" , "chlorophyll" , "chlorophyl" , "clorophyl" , "chlorouphyll"},
+//            {"description" , "chlorophyll" , "chlorophyl" , "clorophyl" , "chlorouphyll"},
 
     };
 
