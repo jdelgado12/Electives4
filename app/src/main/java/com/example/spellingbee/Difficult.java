@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -25,7 +27,10 @@ public class Difficult extends AppCompatActivity {
     private int quizCount =1;
     static final private int QUIZ_COUNT=3;
 
+    MediaPlayer mediaPlayer;
+
     ArrayList<ArrayList<String>>quizArray = new ArrayList<>();
+    int randomNum = 0;
 
     String quizData[][]={
             //description, right answer
@@ -92,7 +97,7 @@ public class Difficult extends AppCompatActivity {
         label.setText("Q" + quizCount);
 
         Random random = new Random();
-        int randomNum = random.nextInt(quizArray.size());
+//        randomNum = random.nextInt(quizArray.size());
 
         //pick a quiz set
         ArrayList<String> quiz = quizArray.get(randomNum);
@@ -104,6 +109,17 @@ public class Difficult extends AppCompatActivity {
 
         //remove this from quiz array
         quizArray.remove(randomNum);
+    }
+
+    public void playAudio(View view){
+
+        // Play the audio here
+        try {
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), getResources().getIdentifier(rightAnswer.toLowerCase(), "raw", getPackageName()));
+            mediaPlayer.start();
+        } catch (Exception e){
+            Log.d(getLocalClassName(), "prolly no audio file");
+        }
     }
 
     public void checkAnswer() {
