@@ -1,0 +1,182 @@
+package com.example.spellingbee;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
+public class Average extends AppCompatActivity {
+    private TextView label;
+    private TextView qLabel;
+    private Button choiceBtn1;
+    private Button choiceBtn2;
+    private Button choiceBtn3;
+    private Button choiceBtn4;
+
+    private String rightAnswer;
+    private int rightAnswerCount =0;
+    private int quizCount =1;
+    static final private int QUIZ_COUNT=3;
+
+    ArrayList<ArrayList<String>>quizArray = new ArrayList<>();
+
+    String quizData[][]={
+            //words, right answer, first choice, second choice, third choice
+            {"VERB; to destroy the collective existence or main body of" ,  "Annihilate" , "anihillate" , "annihillate" , "anihilate"},
+            {"NOUN; a sermon to a graduating class of graduatings students at a school" , "Baccalaureate" , "bacalaureate" , "bacalleureate" , "baccaleureate"},
+            {"NOUN; a tropical plant that has usually red or purple flowers" , "bougainvillea" , "Bougainevillea" , "bougainvilea" , "bougainnevillea"},
+            {"NOUN; a device such as a pattern of letters, ideas, or associations that assists in remembering something" , "Mnemonic" , "pnemonic" , "nemonic" , "mnemounic"},
+            {"NOUN; a large flat area of land that is higher than other areas of land that surrounds it" , "Plateau" , "plataeu" , "platue" , "plateou"},
+            {"NOUN; a plant with large red, pink, or white leaves that looks like petals" , "Poinsettia" ,"ponseittia" , "ponseitia" , "poinsetia"},
+            {"NOUN; a part of an apparatus in which a liquid is held" , "Reservoir", "reservour" , "reservouire" , "reservoar"},
+            {"NOUN; providing supplementary or additional help and support" , "Auxiliary" , "auxilliary" , "oxiliary" , "oxilliary"},
+            {"NOUN; punishment inflicted in retaliaton for an injury or offense" , "Vengeance" , "venjeans" , "vengents" , "vengeants"},
+            {"NOUN; a plant that has brightly colored flowers and that is often grown in gardens" , "Chrysanthemum" , "chryssanthemum" , "chryssanthemmum" , "chrrysanthemum"},
+            {"NOUN; loyalty or commitment of a subordinate to a superior or of an individual to a group or cause" , "Allegiance" , "alegance" , "allegence" , "allegance"},
+            {"ADJ; pleasing or picturesque in natural simplicity" , "Idyllic" , "idylic" , "idealic" , "ideallic"},
+            {"ADJ; unpleasant in a way that makes people feel offended" , "Obnoxious" , "obnotious" , "obnocious" , "obnoxius"},
+            {"NOUN; a lightweight plain-woven or twilled silk usually decorated with a printed pattern" , "Foulard" , "folard" , "follard" , "foullard"},
+            {"NOUN; the green substance in plants that makes it possible for them to make food from carbon dioxide and water" , "Chlorophyll" , "chlorophyl" , "clorophyl" , "chlorouphyll"},
+            {"NOUN; a boat with two hulls" , "Catamaran" , "katamaran" , "chatamaran" , "khatamaran"},
+            {"NOUN;  an open circular or oval building with a central space surrounded by tiers of seats for spectators, for the presentation of dramatic or sporting events" , "Amphitheater" , "ampitheater" , "ampitheather" , "amphitheather"},
+            {"NOUN; a chronic skin disease characterized by red circumstance red patches covered with white scales" , "Psoriasis" , "soriacist" , "soriacist" , "soriacist"},
+            {"NOUN; a usually triangularly folded kerchief for the head" , "Babushka" , "babbushka" , "babbushca" , "babushca"},
+            {"NOUN; a large musical instrument that is shaped like a tube, makes low sounds, played by blowing into a small thin tube in its side" , "Bassoon" , "basoon" , "bassoun" , "basoun"},
+            {"NOUN; a legal agreement by which a bank or other creditor lends money at interest in exchange for taking title of the debtor's property, with the condition that the conveyance of title becomes void upon the payment of the debt" , "Mortgage" , "morgage" , "morgedge" , "mortgedge"},
+            {"NOUN; exact copy" , "Facsimile" , "facsimille" , "phacsimile" , "phacsimille"},
+            {"VERB; move or swing back and forth at a regular speed" , "Oscillate" , "ocilate" , "ocillate" , "oscilate"},
+            {"NOUN; an unbound printed publication with no cover or with a paper cover" , "Pamphlet" , "Pamplet" , "Phamphlet" , "Phamplet"},
+            {"NOUN; a person who helps organizations or groups to work together and provide information to each other" , "Liaison" , "Liason" , "Liasone" , "Liasson"},
+            {"VERB; take the place of (a person or thing previously in authority or use); supplant" , "Supersede" , "supercede" , "superseed" , "superceed"},
+            {"NOUN; a book in which words that have the same or similar meanings are grouped together" , "Thesaurus" , "thesorus" , "thesurous" , "thesourus"},
+            {"ADJ; happy and lively in a way that is attractive" , "Vivacious" , "vivatious" , "vivateous" , "vivaceous"},
+            {"NOUN; a dramatic monologue that represents a series of unspoken reflections" , "Solioquy" , "soliloqui" , "solilocoy" , "soliloquoy"},
+            {"description" , "chlorophyll" , "chlorophyl" , "clorophyl" , "chlorouphyll"},
+
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_average);
+
+        label = (TextView)findViewById(R.id.label);
+        qLabel = (TextView)findViewById(R.id.qLabel);
+        choiceBtn1 = (Button)findViewById(R.id.choiceBtn1);
+        choiceBtn2 = (Button)findViewById(R.id.choiceBtn2);
+        choiceBtn3 = (Button)findViewById(R.id.choiceBtn3);
+        choiceBtn4 = (Button)findViewById(R.id.choiceBtn4);
+
+        //create quiz array from quiz data
+        for(int i =0; i < quizData.length; i++){
+
+            //prepare array
+            ArrayList<String>tmpArray = new ArrayList<>();
+            tmpArray.add(quizData[i][0]); //words
+            tmpArray.add(quizData[i][1]); //right answer
+            tmpArray.add(quizData[i][2]); //first choice
+            tmpArray.add(quizData[i][3]); //second choice
+            tmpArray.add(quizData[i][4]); //third choice
+
+            //add tmpArray to quizArray
+            quizArray.add(tmpArray);
+        }
+
+        showNextQuiz();
+    }
+
+    public void showNextQuiz(){
+
+        //update quizCountLabel
+        label.setText("Question " + quizCount);
+
+        Random random = new Random();
+        int randomNum = random.nextInt(quizArray.size());
+
+        //pick a quiz set
+        ArrayList<String> quiz = quizArray.get(randomNum);
+
+        //set question and right answer
+        qLabel.setText(quiz.get(0));
+        rightAnswer=quiz.get(1);
+
+        quiz.remove(0);
+        Collections.shuffle(quiz);
+
+        //set choices
+        choiceBtn1.setText(quiz.get(0));
+        choiceBtn2.setText(quiz.get(1));
+        choiceBtn3.setText(quiz.get(2));
+        choiceBtn4.setText(quiz.get(3));
+
+        //remove from quiz array
+        quizArray.remove(randomNum);
+    }
+
+    public void checkAnswer(View view){
+
+        //Get pushed button
+        Button answerBtn = (Button)findViewById(view.getId());
+        String btnText = answerBtn.getText().toString();
+
+        String alertTitle;
+
+        if(btnText.equals(rightAnswer)){
+            //correct
+            alertTitle="Correct!";
+            rightAnswerCount++;
+        }
+
+        else{
+            //Wrong
+            alertTitle="Incorrect!";
+        }
+
+        //create dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(alertTitle);
+        builder.setMessage("Answer: " + rightAnswer);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(quizCount == QUIZ_COUNT){
+                    //Show resullt
+                    Intent intent =new Intent(getApplicationContext(), ResultActivity2.class);
+                    intent.putExtra("RIGHT_ANSWER_COUNT", rightAnswerCount);
+                    startActivity(intent);
+                }
+                else{
+                    quizCount++;
+                    showNextQuiz();
+                }
+            }
+        });
+        builder.setCancelable(false);
+        builder.show();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed(); // this can go before or after your stuff below
+        // do your stuff when the back button is pressed
+        Intent intent = new Intent(getApplicationContext(), Levels.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        // super.onBackPressed(); calls finish(); for you
+
+        // clear your SharedPreferences
+        getSharedPreferences("preferenceName",0).edit().clear().commit();
+    }
+}

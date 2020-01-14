@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgbee1"
+    tools:context=".Average">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="340dp"
+        android:layout_height="620dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/white_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="106dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="106dp"
+            android:background="@drawable/audiobtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label" />
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="118dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="118dp"
+            android:layout_marginBottom="58dp"
+            android:fontFamily="@font/dk"
+            android:text="Question 1"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView4"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="106dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginEnd="106dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/label"-->
+<!--            app:srcCompat="@drawable/audio" />-->
+
+        <TextView
+            android:id="@+id/qLabel"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="18dp"
+            android:fontFamily="@font/dk"
+            android:gravity="center"
+            android:text="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+        <LinearLayout
+            android:layout_width="339dp"
+            android:layout_height="237dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="2dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/qLabel">
+
+            <Button
+                android:id="@+id/choiceBtn1"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="45dp"
+                android:backgroundTint="#FFC914"
+                android:fontFamily="@font/dk"
+                android:onClick="checkAnswer"
+                android:text="Button"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/choiceBtn2"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="45dp"
+                android:backgroundTint="#FFC914"
+                android:fontFamily="@font/dk"
+                android:onClick="checkAnswer"
+                android:text="Button"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/choiceBtn3"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="45dp"
+                android:backgroundTint="#FFC914"
+                android:fontFamily="@font/dk"
+                android:onClick="checkAnswer"
+                android:text="Button"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/choiceBtn4"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="45dp"
+                android:backgroundTint="#FFC914"
+                android:fontFamily="@font/dk"
+                android:onClick="checkAnswer"
+                android:text="Button"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

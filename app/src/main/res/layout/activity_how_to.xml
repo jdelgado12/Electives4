@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgbee1"
+    tools:context=".HowTo">
+
+    <ScrollView
+        android:layout_width="340dp"
+        android:layout_height="640dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/white_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/dk"
+                android:gravity="center"
+                android:text="MECHANICS AND SOME REMINDERS ON HOW TO PLAY THE GAME"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="300dp"
+                android:layout_height="491dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:editable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/dk"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="8sp"
+                android:lines="100"
+                android:text="1. The game consists of three levels: Easy, Average and Difficult. \n \n 2. There will be a total of 18 rounds the player must go through to complete the game: six(6) rounds for the Easy, six(6) rounds for the Average, and another six(6) rounds for the Difficult.
+                \n \n3. Each correctly answered question in each round is equivalent to 1000 points.
+                \n \n 4. Each round on the Easy Level, the player will be presented with five questions to answer. The player will have to choose between the two choices provided(correct or incorrect). In each round, be reminded that the player must at least get a score of 3000 points, means to answer three(3) questions out of five(5), to unlock the next Easy Round. Note that within  the Easy Level, the player must accummulate a total points of 18000 to advance to Average Level.
+                \n \n 5. Each round on the Average Level, the player will be presented with three questions to answer. The player will have to choose between the four choices provided. In each round, be reminded that the player must at least get a score of 2000 points, means to answer two(2) questions out of three(3), to unlock the next Average Round. Note that within the Average Level, the player must accummulate a total of 12000 points to advance to Difficult Level.
+                \n \n 6. With the addition of Easy level total points and the Average Level total points, the player needs to earn a total of 30000points.
+                \n \n 7. Each round on the Difficult Level, the player will be presented with three questions to answer. He must answer it correctly and  earn 18000 points within this level.
+                \n \n 8. Overall, the player needs to gather a total of 48000 points,with all the previous points added, to win the game!"
+                android:textSize="20sp" />
+
+
+            <Button
+                android:id="@+id/backBtn"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="90dp"
+                android:backgroundTint="#FFC15E"
+                android:drawableLeft="@drawable/back"
+                android:fontFamily="@font/dk"
+                android:text="Back to Menu"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
