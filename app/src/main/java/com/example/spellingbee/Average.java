@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,7 +30,12 @@ public class Average extends AppCompatActivity {
     private int quizCount =1;
     static final private int QUIZ_COUNT=3;
 
+
+    MediaPlayer mediaPlayer;
+
     ArrayList<ArrayList<String>>quizArray = new ArrayList<>();
+
+    int randomNum = 0;
 
     String quizData[][]={
             //words, right answer, first choice, second choice, third choice
@@ -96,11 +104,16 @@ public class Average extends AppCompatActivity {
 
     public void showNextQuiz(){
 
+        // Resets mp
+        if(mediaPlayer != null){
+            mediaPlayer.reset();
+        }
+
         //update quizCountLabel
         label.setText("Question " + quizCount);
 
         Random random = new Random();
-        int randomNum = random.nextInt(quizArray.size());
+//        randomNum = random.nextInt(quizArray.size());
 
         //pick a quiz set
         ArrayList<String> quiz = quizArray.get(randomNum);
@@ -160,8 +173,20 @@ public class Average extends AppCompatActivity {
                 }
             }
         });
+
+
         builder.setCancelable(false);
         builder.show();
+
+        // Play the audio here
+        try {
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), getResources().getIdentifier(rightAnswer.toLowerCase(), "raw", getPackageName()));
+            mediaPlayer.start();
+        } catch (Exception e){
+
+            Log.d(getLocalClassName(), "prolly no audio file");
+        }
+
     }
 
     @Override
