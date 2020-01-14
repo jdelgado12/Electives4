@@ -97,7 +97,7 @@ public class Difficult extends AppCompatActivity {
         label.setText("Q" + quizCount);
 
         Random random = new Random();
-//        randomNum = random.nextInt(quizArray.size());
+        randomNum = random.nextInt(quizArray.size());
 
         //pick a quiz set
         ArrayList<String> quiz = quizArray.get(randomNum);
