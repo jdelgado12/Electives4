@@ -34,7 +34,6 @@ public class Average extends AppCompatActivity {
     MediaPlayer mediaPlayer;
 
     ArrayList<ArrayList<String>>quizArray = new ArrayList<>();
-
     int randomNum = 0;
 
     String quizData[][]={
@@ -135,6 +134,17 @@ public class Average extends AppCompatActivity {
         quizArray.remove(randomNum);
     }
 
+    public void playAudio(View view){
+
+        // Play the audio here
+        try {
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), getResources().getIdentifier(rightAnswer.toLowerCase(), "raw", getPackageName()));
+            mediaPlayer.start();
+        } catch (Exception e){
+            Log.d(getLocalClassName(), "prolly no audio file");
+        }
+    }
+
     public void checkAnswer(View view){
 
         //Get pushed button
@@ -178,14 +188,6 @@ public class Average extends AppCompatActivity {
         builder.setCancelable(false);
         builder.show();
 
-        // Play the audio here
-        try {
-            mediaPlayer = MediaPlayer.create(getApplicationContext(), getResources().getIdentifier(rightAnswer.toLowerCase(), "raw", getPackageName()));
-            mediaPlayer.start();
-        } catch (Exception e){
-
-            Log.d(getLocalClassName(), "prolly no audio file");
-        }
 
     }
 
