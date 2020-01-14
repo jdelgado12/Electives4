@@ -24,7 +24,7 @@ public class Average extends AppCompatActivity {
     private Button choiceBtn2;
     private Button choiceBtn3;
     private Button choiceBtn4;
-
+    private Button audioBtn;
     private String rightAnswer;
     private int rightAnswerCount =0;
     private int quizCount =1;

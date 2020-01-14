@@ -13,7 +13,8 @@ public class Levels extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
-
+        Intent svc=new Intent(this, BackgroundSoundService.class);
+        stopService(svc);
         Button firstEasy = (Button)findViewById(R.id.easy_1);
         firstEasy.setOnClickListener(new View.OnClickListener() {
             @Override
