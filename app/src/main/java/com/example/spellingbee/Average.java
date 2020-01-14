@@ -179,4 +179,8 @@ public class Average extends AppCompatActivity {
         // clear your SharedPreferences
         getSharedPreferences("preferenceName",0).edit().clear().commit();
     }
+
+
+
+
 }
