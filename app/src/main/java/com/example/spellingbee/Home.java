@@ -15,7 +15,7 @@ public class Home extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Intent svc=new Intent(this, BackgroundSoundService.class);
-        stopService(svc);
+        startService(svc);
         final Button playGameAct =(Button)findViewById(R.id.playGameBtn);
         final Button aboutUsAct =(Button)findViewById(R.id.aboutUsBtn);
         final Button howToPlayAct =(Button)findViewById(R.id.howToPlayBtn);

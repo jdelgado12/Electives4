@@ -163,4 +163,19 @@ public class Difficult extends AppCompatActivity {
         builder.show();
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed(); // this can go before or after your stuff below
+        // do your stuff when the back button is pressed
+        Intent intent = new Intent(getApplicationContext(), Levels.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        // super.onBackPressed(); calls finish(); for you
+
+        // clear your SharedPreferences
+        getSharedPreferences("preferenceName",0).edit().clear().commit();
+    }
 }
