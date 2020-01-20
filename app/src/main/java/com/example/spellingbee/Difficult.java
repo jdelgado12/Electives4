@@ -52,7 +52,37 @@ public class Difficult extends AppCompatActivity {
             {"ADJ; relating to or denoting an original that has been imitated" , "archetypal"},
             {"NOUN; theft or misappropriation of funds placed in one's trust or belonging to one's employer" , "embezzlement"},
             {"NOUN; one who is excessively fond of eating and drinking" , "gourmand"},
-            {"NOUN; the ability to speak or write well in a effective way" , "eloquence"}
+            {"NOUN; the ability to speak or write well in a effective way" , "eloquence"},
+            {"NOUN; a large smoked, seasoned sausage made of various meats, especially beef and pork", "bologna"},
+            {"NOUN; miscellaneous articles, especially the equipment needed for a particular activity", "paraphernalia"},
+            {"ADJ; (of items or people gathered or considered together) of various types or from different sources", "miscellaneous"},
+            {"ADJ; very generous or forgiving, especially toward a rival or someone less powerful than oneself", "magnanimous"},
+            {"ADJ; (of a person or manner) feeling or appearing casually calm and relaxed; not displaying anxiety, interest, or enthusiasm", "nonchalant"},
+            {"ADJ; likely or liable to be influenced or harmed by a particular thing", "susceptible"},
+            {"VERB; cause great suffering to", "scourge"},
+            {"ADJ; too powerful to be defeated or overcome", "invincible"},
+            {"NOUN; mutual trust and friendship among people who spend a lot of time together", "camaraderie"},
+            {"ADJ; exhibiting or characterized by dichotomy", "dichotomous"},
+            {"ADJ; not able to be lost, annulled, or overturned", "indefeasible"},
+            {"NOUN; an extremely confused, complicated, or embarrassing situation", "imbroglio"},
+            {"NOUN; coolness or reserve between people", "froideur"},
+            {"NOUN; a priest or clergyman", "ecclesiastic"},
+            {"NOUN; the holder of a concession or grant, especially for the use of land or commercial premises", "concessionaire"},
+            {"NOUN; a person assisting the celebrant in a religious service or procession.", "acolyte"},
+            {"NOUN; an allusive or oblique remark or hint, typically a suggestive or disparaging one.", "innuendo"},
+            {"NOUN; light and slightly contemptuous mockery or banter.", "persiflage"},
+            {"NOUN; a large trunk or suitcase, typically made of stiff leather and opening into two equal parts", "portmanteau"},
+            {"NOUN; a preparation of shredded or finely cut leaf vegetables, used as a garnish for soup.", "chiffonade"},
+            {"ADJ; having an excessive or erotic interest in oneself and one's physical appearance", "narcissistic"},
+            {"NOUN; an object or design resembling a cross but having a loop instead of the top arm, used in ancient Egypt as a symbol of life", "ankh"},
+            {"NOUN; a sudden, violent, and illegal seizure of power from a government", "coup"},
+            {"NOUN; a woman's bedroom or private room", "boudoir"},
+            {"NOUNl a genus of unicellular protozoa that moves by means of temporary projections called pseudopodia", "amoeba"},
+            {"NOUN; a person or thing that is a perfect example of a particular quality or type", "epitome"},
+
+
+
+//            {"definition", "word"},
     };
 
     @Override
