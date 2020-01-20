@@ -28,6 +28,8 @@
             android:onClick="checkAnswer"
             android:text="Correct"
             android:textSize="40sp"
+            android:backgroundTint="#FFC914"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/answerBtn2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -43,6 +45,8 @@
             android:onClick="checkAnswer"
             android:text="Incorrect"
             android:textSize="40sp"
+            android:backgroundTint="#FFC914"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
