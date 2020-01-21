@@ -24,13 +24,23 @@
 
         <TextView
             android:id="@+id/label"
-            android:layout_width="match_parent"
+            android:layout_width="103dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/dk"
             android:gravity="center"
             android:text="Question"
             android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/timer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dk"
+            android:gravity="center"
+            android:text="01:00"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button"
@@ -61,5 +71,6 @@
             android:inputType="textNoSuggestions"
             android:textSize="25sp"
             />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

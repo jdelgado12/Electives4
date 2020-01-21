@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +18,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Random;
 
 public class Average extends AppCompatActivity {
@@ -30,6 +34,11 @@ public class Average extends AppCompatActivity {
     private int quizCount =1;
     static final private int QUIZ_COUNT=3;
 
+    private static final long COUNTDOWN_IN_MILLIS = 60000;
+    private TextView countDown;
+    private ColorStateList textColorDefaultcd;
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMillis;
 
     MediaPlayer mediaPlayer;
 
@@ -100,6 +109,10 @@ public class Average extends AppCompatActivity {
         choiceBtn3 = (Button)findViewById(R.id.choiceBtn3);
         choiceBtn4 = (Button)findViewById(R.id.choiceBtn4);
 
+        //countdown
+        countDown = (TextView) findViewById(R.id.timer2);
+        textColorDefaultcd = countDown.getTextColors();
+
         //create quiz array from quiz data
         for(int i =0; i < quizData.length; i++){
 
@@ -117,6 +130,8 @@ public class Average extends AppCompatActivity {
 
         showNextQuiz();
     }
+
+
 
     public void showNextQuiz(){
 
@@ -149,6 +164,43 @@ public class Average extends AppCompatActivity {
 
         //remove from quiz array
         quizArray.remove(randomNum);
+
+        timeLeftInMillis = COUNTDOWN_IN_MILLIS;
+        startCountDown();
+    }
+
+    private void startCountDown(){
+        countDownTimer = new CountDownTimer(timeLeftInMillis,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            @Override
+            public void onFinish() {
+                timeLeftInMillis = 0;
+                updateCountDownText();
+                checkAnswer(null);
+
+            }
+        }.start();
+    }
+
+    private void updateCountDownText(){
+        int minutes = (int)(timeLeftInMillis / 1000) / 60;
+        int seconds = (int)(timeLeftInMillis / 1000) % 60;
+
+        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d",minutes, seconds);
+
+        countDown.setText(timeFormatted);
+
+        if(timeLeftInMillis < 10000){
+            countDown.setTextColor(Color.RED);
+
+        }else{
+            countDown.setTextColor(textColorDefaultcd);
+        }
     }
 
     public void playAudio(View view){
@@ -176,6 +228,7 @@ public class Average extends AppCompatActivity {
             mp.start();
             alertTitle="Correct!";
             rightAnswerCount++;
+            countDownTimer.cancel();
         }
 
         else{
@@ -183,6 +236,7 @@ public class Average extends AppCompatActivity {
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
             mp.start();
             alertTitle="Incorrect!";
+            countDownTimer.cancel();
         }
 
         //create dialog

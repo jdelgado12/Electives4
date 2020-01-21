@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 
 public class Difficult extends AppCompatActivity {
@@ -28,6 +32,12 @@ public class Difficult extends AppCompatActivity {
     static final private int QUIZ_COUNT=3;
 
     MediaPlayer mediaPlayer;
+
+    private static final long COUNTDOWN_IN_MILLIS = 60000;
+    private TextView countDown;
+    private ColorStateList textColorDefaultcd;
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMillis;
 
     ArrayList<ArrayList<String>>quizArray = new ArrayList<>();
     int randomNum = 0;
@@ -94,6 +104,10 @@ public class Difficult extends AppCompatActivity {
         qLabel = (TextView) findViewById(R.id.qLabel);
         editTextInput = (EditText) findViewById(R.id.editTextInput);
 
+        //countdown
+        countDown = (TextView) findViewById(R.id.timer2);
+        textColorDefaultcd = countDown.getTextColors();
+
         editTextInput.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent keyEvent) {
@@ -139,6 +153,43 @@ public class Difficult extends AppCompatActivity {
 
         //remove this from quiz array
         quizArray.remove(randomNum);
+
+        timeLeftInMillis = COUNTDOWN_IN_MILLIS;
+        startCountDown();
+    }
+
+    private void startCountDown(){
+        countDownTimer = new CountDownTimer(timeLeftInMillis,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            @Override
+            public void onFinish() {
+                timeLeftInMillis = 0;
+                updateCountDownText();
+                checkAnswer();
+
+            }
+        }.start();
+    }
+
+    private void updateCountDownText(){
+        int minutes = (int)(timeLeftInMillis / 1000) / 60;
+        int seconds = (int)(timeLeftInMillis / 1000) % 60;
+
+        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d",minutes, seconds);
+
+        countDown.setText(timeFormatted);
+
+        if(timeLeftInMillis < 10000){
+            countDown.setTextColor(Color.RED);
+
+        }else{
+            countDown.setTextColor(textColorDefaultcd);
+        }
     }
 
     public void playAudio(View view){
@@ -165,11 +216,13 @@ public class Difficult extends AppCompatActivity {
             mp.start();
             alertTitle = "Correct!";
             rightAnswerCount++;
+            countDownTimer.cancel();
         } else {
             //Wrong
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
             mp.start();
             alertTitle = "Incorrect!";
+            countDownTimer.cancel();
         }
 
         //create dialog
