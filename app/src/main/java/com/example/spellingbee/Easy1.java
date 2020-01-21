@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,7 @@ public class Easy1 extends AppCompatActivity {
     private String rightAnswer;
     private int rightAnswerCount =0;
     private int quizCount =1;
+    private int chosenLVL;
     static final private int QUIZ_COUNT=5;
 
     ArrayList<ArrayList<String>>quizArray = new ArrayList<>();
@@ -86,6 +89,9 @@ public class Easy1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easy1);
+
+
+
         countLabel = (TextView)findViewById(R.id.countLabel);
         questionLabel = (TextView)findViewById(R.id.questionLabel);
         answerBtn1 = (Button)findViewById(R.id.answerBtn1);
@@ -143,12 +149,16 @@ public class Easy1 extends AppCompatActivity {
 
         if(btnText.equals(rightAnswer)){
             //correct
+            final MediaPlayer mp = MediaPlayer.create(this, R.raw.correct);
+            mp.start();
             alertTitle="Correct!";
             rightAnswerCount++;
         }
 
         else{
             //Wrong
+            final MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
+            mp.start();
             alertTitle="Incorrect!";
         }
 

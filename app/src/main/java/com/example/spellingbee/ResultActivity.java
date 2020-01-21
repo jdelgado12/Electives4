@@ -10,12 +10,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ResultActivity extends AppCompatActivity {
+import java.util.logging.Level;
 
+public class ResultActivity extends AppCompatActivity {
+private int chosenLVL;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        SharedPreferences levelUnlock = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE);
+        chosenLVL = levelUnlock.getInt("chosenLVL", 0);
 
         TextView resultLabel = (TextView)findViewById(R.id.resultLabel);
         TextView totalScoreLabel =(TextView)findViewById(R.id.totalScoreLabel);
@@ -31,9 +36,51 @@ public class ResultActivity extends AppCompatActivity {
         totalScoreLabel.setText("Total Score: " + totalScore);
 
         //update total score
+
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt("totalScore: " , totalScore);
         editor.commit();
+
+        if (score >=3) {
+            if (chosenLVL ==1 ){
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL2_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+
+            else if (chosenLVL == 2 ) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL3_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+
+            else if (chosenLVL == 3 ) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL4_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL == 4 ) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL5_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL == 5 ) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL6_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL == 6 ) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL7_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+        }
 
         final Button playGameAct =(Button)findViewById(R.id.BackBtn);
         playGameAct.setOnClickListener(new View.OnClickListener() {
