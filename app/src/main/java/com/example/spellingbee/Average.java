@@ -172,12 +172,16 @@ public class Average extends AppCompatActivity {
 
         if(btnText.equals(rightAnswer)){
             //correct
+            final MediaPlayer mp = MediaPlayer.create(this, R.raw.correct);
+            mp.start();
             alertTitle="Correct!";
             rightAnswerCount++;
         }
 
         else{
             //Wrong
+            final MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
+            mp.start();
             alertTitle="Incorrect!";
         }
 
