@@ -34,7 +34,7 @@ public class Average extends AppCompatActivity {
     private int quizCount =1;
     static final private int QUIZ_COUNT=3;
 
-    private static final long COUNTDOWN_IN_MILLIS = 5000;
+    private static final long COUNTDOWN_IN_MILLIS = 60000;
     private TextView countDown;
     private ColorStateList textColorDefaultcd;
     private CountDownTimer countDownTimer;
@@ -285,6 +285,7 @@ public class Average extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        countDownTimer.cancel();
         // super.onBackPressed(); calls finish(); for you
 
         // clear your SharedPreferences

@@ -33,7 +33,7 @@ public class Difficult extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
 
-    private static final long COUNTDOWN_IN_MILLIS = 5000;
+    private static final long COUNTDOWN_IN_MILLIS = 20000;
     private TextView countDown;
     private ColorStateList textColorDefaultcd;
     private CountDownTimer countDownTimer;
@@ -138,7 +138,7 @@ public class Difficult extends AppCompatActivity {
     public void showNextQuiz(){
 
         //update quizCountLabel
-        label.setText("Q" + quizCount);
+        label.setText("Question " + quizCount);
 
         Random random = new Random();
         randomNum = random.nextInt(quizArray.size());
@@ -260,6 +260,7 @@ public class Difficult extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        countDownTimer.cancel();
         // super.onBackPressed(); calls finish(); for you
 
         // clear your SharedPreferences

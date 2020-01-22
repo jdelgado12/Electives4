@@ -31,7 +31,7 @@ public class Easy1 extends AppCompatActivity {
     private int chosenLVL;
     static final private int QUIZ_COUNT=5;
 
-    private static final long COUNTDOWN_IN_MILLIS = 5000;
+    private static final long COUNTDOWN_IN_MILLIS = 15000;
     private TextView countDown;
     private ColorStateList textColorDefaultcd;
     private CountDownTimer countDownTimer;
@@ -257,6 +257,7 @@ public class Easy1 extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        countDownTimer.cancel();
         // super.onBackPressed(); calls finish(); for you
 
         // clear your SharedPreferences
