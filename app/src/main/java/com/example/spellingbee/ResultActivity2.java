@@ -11,11 +11,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ResultActivity2 extends AppCompatActivity {
-
+private int chosenLVL;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result2);
+
+        SharedPreferences levelUnlock = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE);
+        chosenLVL = levelUnlock.getInt("chosenLVL", 0);
 
         TextView resultLabel = (TextView)findViewById(R.id.resultLabel);
         TextView totalScoreLabel =(TextView)findViewById(R.id.totalScoreLabel);
@@ -34,6 +37,78 @@ public class ResultActivity2 extends AppCompatActivity {
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt("totalScore: " , totalScore);
         editor.commit();
+
+        if (score >=2) {
+            if (chosenLVL == 7) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL8_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL == 8 ) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL9_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL == 9 ) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL10_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL == 10 ) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL11_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL ==11 ) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL12_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL == 12 ) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL13_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+        }
+
+        if (score ==3){
+            if (chosenLVL == 13) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL14_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL == 14) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL15_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL == 15) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL16_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL == 16) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL17_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+            else if (chosenLVL == 17) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL18_unlocked", 1);
+                levelEditor.commit();
+                levelEditor.apply();
+            }
+        }
 
         final Button playGameAct =(Button)findViewById(R.id.BackBtn);
         playGameAct.setOnClickListener(new View.OnClickListener() {

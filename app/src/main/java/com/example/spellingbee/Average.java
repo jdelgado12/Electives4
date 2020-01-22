@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +18,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Random;
 
 public class Average extends AppCompatActivity {
@@ -24,12 +28,17 @@ public class Average extends AppCompatActivity {
     private Button choiceBtn2;
     private Button choiceBtn3;
     private Button choiceBtn4;
-
+    private Button audioBtn;
     private String rightAnswer;
     private int rightAnswerCount =0;
     private int quizCount =1;
     static final private int QUIZ_COUNT=3;
 
+    private static final long COUNTDOWN_IN_MILLIS = 60000;
+    private TextView countDown;
+    private ColorStateList textColorDefaultcd;
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMillis;
 
     MediaPlayer mediaPlayer;
 
@@ -66,8 +75,25 @@ public class Average extends AppCompatActivity {
             {"VERB; take the place of (a person or thing previously in authority or use); supplant" , "Supersede" , "supercede" , "superseed" , "superceed"},
             {"NOUN; a book in which words that have the same or similar meanings are grouped together" , "Thesaurus" , "thesorus" , "thesurous" , "thesourus"},
             {"ADJ; happy and lively in a way that is attractive" , "Vivacious" , "vivatious" , "vivateous" , "vivaceous"},
-            {"NOUN; a dramatic monologue that represents a series of unspoken reflections" , "Solioquy" , "soliloqui" , "solilocoy" , "soliloquoy"},
-            {"description" , "chlorophyll" , "chlorophyl" , "clorophyl" , "chlorouphyll"},
+            {"NOUN; a dramatic monologue that represents a series of unspoken reflections" , "Soliloquy" , "soliloqui" , "solilocoy" , "soliloquoy"},
+            {"NOUN; an army officer of high rank, in particular an officer above a lieutenant colonel and below a brigadier general." , "Colonel" , "Kernel" , "Colenel" , "Kerenel"},
+            {"NOUN; a line or sequence of people or vehicles awaiting their turn to be attended to or to proceed." , "Queue" , "Queueu" , "Qeue" , "Cue"},
+            {"NOUN; the way in which a word is pronounced." , "Pronunciation" , "Pronounciation" , "Prononciation" , "Pronunsiation"},
+            {"ADJ;  clever, original, and inventive" , "Ingenious" , "Ingenius" , "Inginews" , "Ingeniuos"},
+            {"NOUN; a large mainly solitary arboreal ape with long reddish hair, long arms, and hooked hands and feet, native to Borneo and Sumatra." , "Orangutan" , "Orangutang" , "oranggutan" , "urangutan"},
+            {"VERB; continue to investigate, explore, or discuss" , "Pursue" , "persue" , "porseu" , "persew"},
+            {"NOUN; the process of maintaining or preserving someone or something, or the state of being maintained" , "Maintenance" , "maintainance" , "maintainence" , "maintenence"},
+            {"NOUN; a right or privilege exclusive to a particular individual or class." , "Prerogative" , "Progative" , "Prerogitive" , "Perogitive"},
+            {"NOUN; a person who brings a case against another in a court of law" , "Plaintiff" , "Planetiff" , "Plaintif" , "Plantiff"},
+            {"VERB; delay or postpone action; put off doing something" , "Procrastinate" , "Pocrastinate" , "Procastinate" , "Prucrastinate"},
+            {"VERB; a feeling of sickness with an inclination to vomit" , "Nausea" , "Nauseu" , "Nausia" , "Nauseau"},
+            {"NOUN; the day after today" , "Tomorrow" , "Tommorow" , "Tommorrow" , "Tomorow"},
+            {"ADJ; wanting or devouring great quantities of food." , "Voracious" , "boracius" , "Voratious" , "Voraycious"},
+            {"ADJ; (of two or more people) fully in agreement" , "Unanimous" , "Unnanimous" , "Unanimious" , "Unannimous"},
+            {"NOUN; a cabinet or small recess with a door and typically shelves, used for storage." , "Cupboard" , "Cuboard" , "Cuppoard" , "Cubpoard"},
+            {"VERB; be better than; surpass" , "Exceed" , "Excede" , "Exseed" , "Excsede"},
+
+//            {"description" , "chlorophyll" , "chlorophyl" , "clorophyl" , "chlorouphyll"},
 
     };
 
@@ -82,6 +108,10 @@ public class Average extends AppCompatActivity {
         choiceBtn2 = (Button)findViewById(R.id.choiceBtn2);
         choiceBtn3 = (Button)findViewById(R.id.choiceBtn3);
         choiceBtn4 = (Button)findViewById(R.id.choiceBtn4);
+
+        //countdown
+        countDown = (TextView) findViewById(R.id.timer2);
+        textColorDefaultcd = countDown.getTextColors();
 
         //create quiz array from quiz data
         for(int i =0; i < quizData.length; i++){
@@ -101,6 +131,8 @@ public class Average extends AppCompatActivity {
         showNextQuiz();
     }
 
+
+
     public void showNextQuiz(){
 
         // Resets mp
@@ -112,7 +144,7 @@ public class Average extends AppCompatActivity {
         label.setText("Question " + quizCount);
 
         Random random = new Random();
-//        randomNum = random.nextInt(quizArray.size());
+        randomNum = random.nextInt(quizArray.size());
 
         //pick a quiz set
         ArrayList<String> quiz = quizArray.get(randomNum);
@@ -132,6 +164,43 @@ public class Average extends AppCompatActivity {
 
         //remove from quiz array
         quizArray.remove(randomNum);
+
+        timeLeftInMillis = COUNTDOWN_IN_MILLIS;
+        startCountDown();
+    }
+
+    private void startCountDown(){
+        countDownTimer = new CountDownTimer(timeLeftInMillis,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            @Override
+            public void onFinish() {
+                timeLeftInMillis = 0;
+                updateCountDownText();
+                checkAnswer(null);
+
+            }
+        }.start();
+    }
+
+    private void updateCountDownText(){
+        int minutes = (int)(timeLeftInMillis / 1000) / 60;
+        int seconds = (int)(timeLeftInMillis / 1000) % 60;
+
+        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d",minutes, seconds);
+
+        countDown.setText(timeFormatted);
+
+        if(timeLeftInMillis < 10000){
+            countDown.setTextColor(Color.RED);
+
+        }else{
+            countDown.setTextColor(textColorDefaultcd);
+        }
     }
 
     public void playAudio(View view){
@@ -155,13 +224,19 @@ public class Average extends AppCompatActivity {
 
         if(btnText.equals(rightAnswer)){
             //correct
+            final MediaPlayer mp = MediaPlayer.create(this, R.raw.correct);
+            mp.start();
             alertTitle="Correct!";
             rightAnswerCount++;
+            countDownTimer.cancel();
         }
 
         else{
             //Wrong
+            final MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
+            mp.start();
             alertTitle="Incorrect!";
+            countDownTimer.cancel();
         }
 
         //create dialog

@@ -32,9 +32,11 @@ public class ExitApp extends AppCompatActivity {
                 finish();
                 moveTaskToBack(true);
 
+
             }
         });
-
+        Intent svc=new Intent(this, BackgroundSoundService.class);
+        stopService(svc);
     }
 
     @Override

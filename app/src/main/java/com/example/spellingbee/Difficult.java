@@ -5,13 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 
 public class Difficult extends AppCompatActivity {
@@ -25,7 +31,16 @@ public class Difficult extends AppCompatActivity {
     private int quizCount =1;
     static final private int QUIZ_COUNT=3;
 
+    MediaPlayer mediaPlayer;
+
+    private static final long COUNTDOWN_IN_MILLIS = 60000;
+    private TextView countDown;
+    private ColorStateList textColorDefaultcd;
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMillis;
+
     ArrayList<ArrayList<String>>quizArray = new ArrayList<>();
+    int randomNum = 0;
 
     String quizData[][]={
             //description, right answer
@@ -47,7 +62,37 @@ public class Difficult extends AppCompatActivity {
             {"ADJ; relating to or denoting an original that has been imitated" , "archetypal"},
             {"NOUN; theft or misappropriation of funds placed in one's trust or belonging to one's employer" , "embezzlement"},
             {"NOUN; one who is excessively fond of eating and drinking" , "gourmand"},
-            {"NOUN; the ability to speak or write well in a effective way" , "eloquence"}
+            {"NOUN; the ability to speak or write well in a effective way" , "eloquence"},
+            {"NOUN; a large smoked, seasoned sausage made of various meats, especially beef and pork", "bologna"},
+            {"NOUN; miscellaneous articles, especially the equipment needed for a particular activity", "paraphernalia"},
+            {"ADJ; (of items or people gathered or considered together) of various types or from different sources", "miscellaneous"},
+            {"ADJ; very generous or forgiving, especially toward a rival or someone less powerful than oneself", "magnanimous"},
+            {"ADJ; (of a person or manner) feeling or appearing casually calm and relaxed; not displaying anxiety, interest, or enthusiasm", "nonchalant"},
+            {"ADJ; likely or liable to be influenced or harmed by a particular thing", "susceptible"},
+            {"VERB; cause great suffering to", "scourge"},
+            {"ADJ; too powerful to be defeated or overcome", "invincible"},
+            {"NOUN; mutual trust and friendship among people who spend a lot of time together", "camaraderie"},
+            {"ADJ; exhibiting or characterized by dichotomy", "dichotomous"},
+            {"ADJ; not able to be lost, annulled, or overturned", "indefeasible"},
+            {"NOUN; an extremely confused, complicated, or embarrassing situation", "imbroglio"},
+            {"NOUN; coolness or reserve between people", "froideur"},
+            {"NOUN; a priest or clergyman", "ecclesiastic"},
+            {"NOUN; the holder of a concession or grant, especially for the use of land or commercial premises", "concessionaire"},
+            {"NOUN; a person assisting the celebrant in a religious service or procession.", "acolyte"},
+            {"NOUN; an allusive or oblique remark or hint, typically a suggestive or disparaging one.", "innuendo"},
+            {"NOUN; light and slightly contemptuous mockery or banter.", "persiflage"},
+            {"NOUN; a large trunk or suitcase, typically made of stiff leather and opening into two equal parts", "portmanteau"},
+            {"NOUN; a preparation of shredded or finely cut leaf vegetables, used as a garnish for soup.", "chiffonade"},
+            {"ADJ; having an excessive or erotic interest in oneself and one's physical appearance", "narcissistic"},
+            {"NOUN; an object or design resembling a cross but having a loop instead of the top arm, used in ancient Egypt as a symbol of life", "ankh"},
+            {"NOUN; a sudden, violent, and illegal seizure of power from a government", "coup"},
+            {"NOUN; a woman's bedroom or private room", "boudoir"},
+            {"NOUNl a genus of unicellular protozoa that moves by means of temporary projections called pseudopodia", "amoeba"},
+            {"NOUN; a person or thing that is a perfect example of a particular quality or type", "epitome"},
+
+
+
+//            {"definition", "word"},
     };
 
     @Override
@@ -58,6 +103,10 @@ public class Difficult extends AppCompatActivity {
         label = (TextView) findViewById(R.id.label);
         qLabel = (TextView) findViewById(R.id.qLabel);
         editTextInput = (EditText) findViewById(R.id.editTextInput);
+
+        //countdown
+        countDown = (TextView) findViewById(R.id.timer2);
+        textColorDefaultcd = countDown.getTextColors();
 
         editTextInput.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -92,7 +141,7 @@ public class Difficult extends AppCompatActivity {
         label.setText("Q" + quizCount);
 
         Random random = new Random();
-        int randomNum = random.nextInt(quizArray.size());
+        randomNum = random.nextInt(quizArray.size());
 
         //pick a quiz set
         ArrayList<String> quiz = quizArray.get(randomNum);
@@ -104,6 +153,54 @@ public class Difficult extends AppCompatActivity {
 
         //remove this from quiz array
         quizArray.remove(randomNum);
+
+        timeLeftInMillis = COUNTDOWN_IN_MILLIS;
+        startCountDown();
+    }
+
+    private void startCountDown(){
+        countDownTimer = new CountDownTimer(timeLeftInMillis,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            @Override
+            public void onFinish() {
+                timeLeftInMillis = 0;
+                updateCountDownText();
+                checkAnswer();
+
+            }
+        }.start();
+    }
+
+    private void updateCountDownText(){
+        int minutes = (int)(timeLeftInMillis / 1000) / 60;
+        int seconds = (int)(timeLeftInMillis / 1000) % 60;
+
+        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d",minutes, seconds);
+
+        countDown.setText(timeFormatted);
+
+        if(timeLeftInMillis < 10000){
+            countDown.setTextColor(Color.RED);
+
+        }else{
+            countDown.setTextColor(textColorDefaultcd);
+        }
+    }
+
+    public void playAudio(View view){
+
+        // Play the audio here
+        try {
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), getResources().getIdentifier(rightAnswer.toLowerCase(), "raw", getPackageName()));
+            mediaPlayer.start();
+        } catch (Exception e){
+            Log.d(getLocalClassName(), "prolly no audio file");
+        }
     }
 
     public void checkAnswer() {
@@ -115,11 +212,17 @@ public class Difficult extends AppCompatActivity {
 
         if (answer.equals(rightAnswer)) {
             //correct
+            final MediaPlayer mp = MediaPlayer.create(this, R.raw.correct);
+            mp.start();
             alertTitle = "Correct!";
             rightAnswerCount++;
+            countDownTimer.cancel();
         } else {
             //Wrong
+            final MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
+            mp.start();
             alertTitle = "Incorrect!";
+            countDownTimer.cancel();
         }
 
         //create dialog
@@ -147,4 +250,19 @@ public class Difficult extends AppCompatActivity {
         builder.show();
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed(); // this can go before or after your stuff below
+        // do your stuff when the back button is pressed
+        Intent intent = new Intent(getApplicationContext(), Levels.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        // super.onBackPressed(); calls finish(); for you
+
+        // clear your SharedPreferences
+        getSharedPreferences("preferenceName",0).edit().clear().commit();
+    }
 }

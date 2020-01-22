@@ -5,13 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Random;
 
 public class Easy1 extends AppCompatActivity {
@@ -22,7 +28,14 @@ public class Easy1 extends AppCompatActivity {
     private String rightAnswer;
     private int rightAnswerCount =0;
     private int quizCount =1;
+    private int chosenLVL;
     static final private int QUIZ_COUNT=5;
+
+    private static final long COUNTDOWN_IN_MILLIS = 60000;
+    private TextView countDown;
+    private ColorStateList textColorDefaultcd;
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMillis;
 
     ArrayList<ArrayList<String>>quizArray = new ArrayList<>();
 
@@ -86,10 +99,17 @@ public class Easy1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easy1);
+
+
+
         countLabel = (TextView)findViewById(R.id.countLabel);
         questionLabel = (TextView)findViewById(R.id.questionLabel);
         answerBtn1 = (Button)findViewById(R.id.answerBtn1);
         answerBtn2 = (Button)findViewById(R.id.answerBtn2);
+
+        //countdown
+        countDown = (TextView) findViewById(R.id.timer2);
+        textColorDefaultcd = countDown.getTextColors();
 
         //create quiz array from quiz data
         for(int i =0; i < quizData.length; i++){
@@ -131,7 +151,45 @@ public class Easy1 extends AppCompatActivity {
 
         //remove from quiz array
         quizArray.remove(randomNum);
+
+        timeLeftInMillis = COUNTDOWN_IN_MILLIS;
+        startCountDown();
     }
+
+    private void startCountDown(){
+        countDownTimer = new CountDownTimer(timeLeftInMillis,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            @Override
+            public void onFinish() {
+                timeLeftInMillis = 0;
+                updateCountDownText();
+                checkAnswer(null);
+
+            }
+        }.start();
+    }
+
+    private void updateCountDownText(){
+        int minutes = (int)(timeLeftInMillis / 1000) / 60;
+        int seconds = (int)(timeLeftInMillis / 1000) % 60;
+
+        String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d",minutes, seconds);
+
+        countDown.setText(timeFormatted);
+
+        if(timeLeftInMillis < 10000){
+            countDown.setTextColor(Color.RED);
+
+        }else{
+            countDown.setTextColor(textColorDefaultcd);
+        }
+    }
+
 
     public void checkAnswer(View view){
 
@@ -143,13 +201,19 @@ public class Easy1 extends AppCompatActivity {
 
         if(btnText.equals(rightAnswer)){
             //correct
+            final MediaPlayer mp = MediaPlayer.create(this, R.raw.correct);
+            mp.start();
             alertTitle="Correct!";
             rightAnswerCount++;
+            countDownTimer.cancel();
         }
 
         else{
             //Wrong
+            final MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
+            mp.start();
             alertTitle="Incorrect!";
+            countDownTimer.cancel();
         }
 
         //create dialog
