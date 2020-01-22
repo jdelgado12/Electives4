@@ -8,26 +8,56 @@
         android:label="Bee the Best"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
         android:theme="@style/AppTheme">
+        <activity android:name=".resetConfirm"></activity>
 
-        <service android:enabled="true" android:name=".BackgroundSoundService" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Difficult" android:screenOrientation="sensorPortrait"></activity>
-        <activity android:name=".ResultActivity2" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Settings" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".HowTo" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Average" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".ExitApp" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".ResultActivity" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Easy1" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Levels" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".Home" android:screenOrientation="sensorPortrait" />
-        <activity android:name=".AboutUs" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".MainActivity" android:screenOrientation="sensorPortrait">
+        <service
+            android:name=".BackgroundSoundService"
+            android:enabled="true"
+            android:screenOrientation="sensorPortrait" />
+
+        <activity
+            android:name=".Difficult"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ResultActivity2"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Settings"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".HowTo"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Average"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ExitApp"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ResultActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Easy1"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Levels"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Home"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".AboutUs"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="sensorPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

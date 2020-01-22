@@ -55,13 +55,11 @@
                 android:inputType="textMultiLine"
                 android:lineSpacingExtra="8sp"
                 android:lines="100"
-                android:text="1. The game consists of three levels: Easy, Average and Difficult. \n \n 2. There will be a total of 18 rounds the player must go through to complete the game: six(6) rounds for the Easy, six(6) rounds for the Average, and another six(6) rounds for the Difficult.
-                \n \n3. Each correctly answered question in each round is equivalent to 1000 points.
-                \n \n 4. Each round on the Easy Level, the player will be presented with five questions to answer. The player will have to choose between the two choices provided(correct or incorrect). In each round, be reminded that the player must at least get a score of 3000 points, means to answer three(3) questions out of five(5), to unlock the next Easy Round. Note that within  the Easy Level, the player must accummulate a total points of 18000 to advance to Average Level.
-                \n \n 5. Each round on the Average Level, the player will be presented with three questions to answer. The player will have to choose between the four choices provided. In each round, be reminded that the player must at least get a score of 2000 points, means to answer two(2) questions out of three(3), to unlock the next Average Round. Note that within the Average Level, the player must accummulate a total of 12000 points to advance to Difficult Level.
-                \n \n 6. With the addition of Easy level total points and the Average Level total points, the player needs to earn a total of 30000points.
-                \n \n 7. Each round on the Difficult Level, the player will be presented with three questions to answer. He must answer it correctly and  earn 18000 points within this level.
-                \n \n 8. Overall, the player needs to gather a total of 48000 points,with all the previous points added, to win the game!"
+                android:text="1. The game consists of three levels: Easy, Average and Difficult. \n \n 2. There will be a total of 66 rounds the player must go through to complete the game: thirty(30) rounds for the Easy, eighteen(18) rounds for the Average, and another eighteen(18) rounds for the Difficult.
+                \n \n3. Each correctly answered question in each round is equivalent to 1 point.
+                \n \n 4. Each round on the Easy Level, the player will be presented with five questions to answer. The player will have to choose between the two choices provided(correct or incorrect). In each round, be reminded that the player must at least get a score of 3 points, means to answer three(3) questions out of five(5), to unlock the next Easy Round. Note that within  the Easy Level, the player must complete the Easy level to unlock the Average level.
+                \n \n 5. Each round on the Average Level, the player will be presented with three questions to answer. The player will have to choose between the four choices provided. In each round, be reminded that the player must at least get a score of 2 points, means to answer two(2) questions out of three(3), to unlock the next Average Round. Note that within the Average Level, the player must complete the Average level to unlock the Difficult level.
+                \n \n 6. Each round on the Difficult Level, the player will be presented with three questions to answer. He must answer all the questions correctly to win the game."
                 android:textSize="20sp" />
 
 

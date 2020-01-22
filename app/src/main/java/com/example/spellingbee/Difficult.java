@@ -89,8 +89,12 @@ public class Difficult extends AppCompatActivity {
             {"NOUN; a woman's bedroom or private room", "boudoir"},
             {"NOUNl a genus of unicellular protozoa that moves by means of temporary projections called pseudopodia", "amoeba"},
             {"NOUN; a person or thing that is a perfect example of a particular quality or type", "epitome"},
-
-
+            {"NOUN; a dog of a short-legged, long-bodied breed", "dachshund"},
+            {"ADJ; marked by or expressing an appealingly lively quality", "effervescent"},
+            {"NOUN; a very small parasitic bacterium that, like a virus, requires the biochemical mechanisms of another cell in order to reproduce", "chlamydia"},
+            {"NOUN; a vegetable dish consisting of onions, zucchini, tomatoes, eggplant", "ratatouille"},
+            {"NOUN;  the horizontal coordinate of a point in a plane Cartesian coordinate", "abscissa"},
+            {"NOUN; a county in the West Midlands of England", "worcestershire"},
 
 //            {"definition", "word"},
     };

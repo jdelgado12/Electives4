@@ -91,7 +91,20 @@ public class Easy1 extends AppCompatActivity {
             {"excercise" , "incorrect" , "correct", "Exercise"},
             {"truly" , "correct" , "incorrect" , "Truly"},
             {"enormouse" , "incorrect" , "correct", "Enormous"},
-            {"omission" , "correct" , "incorrect", "Omission"}
+            {"omission" , "correct" , "incorrect", "Omission"},
+            {"aqueous","correct","incorrect","Aqueous"},
+            {"acquaintance","correct","incorrect","Acquaintance"},
+            {"Amature","incorrect","correct","Amateur"},
+            {"aneurism","incorrect","correct","Aneurysm"},
+            {"Lasagna","correct","incorrect","Lasagna"},
+            {"casserole","correct","incorrect","Casserole"},
+            {"disfunctional","incorrect","correct","Dysfunctional"},
+            {"Excerp","incorrect","correct","Excerpt"},
+            {"Finesse","correct","incorrect","Finesse"},
+            {"Hemorrage","incorrect","correct","Hemorrhage"},
+            {"Proprietor","correct","incorrect","Proprietor"},
+            {"Ricochet","correct","incorrect","Ricochet"},
+            {"Eunuche","incorrect","correct","Eunuch"}
 
     };
 
