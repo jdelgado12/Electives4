@@ -33,7 +33,7 @@ public class Difficult extends AppCompatActivity {
 
     MediaPlayer mediaPlayer;
 
-    private static final long COUNTDOWN_IN_MILLIS = 60000;
+    private static final long COUNTDOWN_IN_MILLIS = 5000;
     private TextView countDown;
     private ColorStateList textColorDefaultcd;
     private CountDownTimer countDownTimer;

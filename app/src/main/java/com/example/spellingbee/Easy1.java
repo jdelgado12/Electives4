@@ -31,7 +31,7 @@ public class Easy1 extends AppCompatActivity {
     private int chosenLVL;
     static final private int QUIZ_COUNT=5;
 
-    private static final long COUNTDOWN_IN_MILLIS = 60000;
+    private static final long COUNTDOWN_IN_MILLIS = 5000;
     private TextView countDown;
     private ColorStateList textColorDefaultcd;
     private CountDownTimer countDownTimer;

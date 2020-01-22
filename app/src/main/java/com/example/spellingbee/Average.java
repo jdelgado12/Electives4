@@ -34,7 +34,7 @@ public class Average extends AppCompatActivity {
     private int quizCount =1;
     static final private int QUIZ_COUNT=3;
 
-    private static final long COUNTDOWN_IN_MILLIS = 60000;
+    private static final long COUNTDOWN_IN_MILLIS = 5000;
     private TextView countDown;
     private ColorStateList textColorDefaultcd;
     private CountDownTimer countDownTimer;
@@ -217,26 +217,35 @@ public class Average extends AppCompatActivity {
     public void checkAnswer(View view){
 
         //Get pushed button
-        Button answerBtn = (Button)findViewById(view.getId());
-        String btnText = answerBtn.getText().toString();
+
 
         String alertTitle;
 
-        if(btnText.equals(rightAnswer)){
-            //correct
-            final MediaPlayer mp = MediaPlayer.create(this, R.raw.correct);
-            mp.start();
-            alertTitle="Correct!";
-            rightAnswerCount++;
-            countDownTimer.cancel();
-        }
-
-        else{
-            //Wrong
+        if (view == null) {
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
             mp.start();
             alertTitle="Incorrect!";
             countDownTimer.cancel();
+        }
+        else {
+            Button answerBtn = (Button) findViewById(view.getId());
+            String btnText = answerBtn.getText().toString();
+
+
+            if (btnText.equals(rightAnswer)) {
+                //correct
+                final MediaPlayer mp = MediaPlayer.create(this, R.raw.correct);
+                mp.start();
+                alertTitle = "Correct!";
+                rightAnswerCount++;
+                countDownTimer.cancel();
+            } else {
+                //Wrong
+                final MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
+                mp.start();
+                alertTitle = "Incorrect!";
+                countDownTimer.cancel();
+            }
         }
 
         //create dialog
