@@ -192,29 +192,38 @@ public class Easy1 extends AppCompatActivity {
 
 
     public void checkAnswer(View view){
-
-        //Get pushed button
-        Button answerBtn = (Button)findViewById(view.getId());
-        String btnText = answerBtn.getText().toString();
-
         String alertTitle;
-
-        if(btnText.equals(rightAnswer)){
-            //correct
-            final MediaPlayer mp = MediaPlayer.create(this, R.raw.correct);
-            mp.start();
-            alertTitle="Correct!";
-            rightAnswerCount++;
-            countDownTimer.cancel();
-        }
-
-        else{
-            //Wrong
+        //Get pushed button
+        if (view == null) {
             final MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
             mp.start();
             alertTitle="Incorrect!";
             countDownTimer.cancel();
+        } else {
+            Button answerBtn = (Button)findViewById(view.getId());
+            String btnText = answerBtn.getText().toString();
+
+
+
+            if(btnText.equals(rightAnswer)){
+                //correct
+                final MediaPlayer mp = MediaPlayer.create(this, R.raw.correct);
+                mp.start();
+                alertTitle="Correct!";
+                rightAnswerCount++;
+                countDownTimer.cancel();
+            }
+
+            else{
+                //Wrong
+                final MediaPlayer mp = MediaPlayer.create(this, R.raw.wrong);
+                mp.start();
+                alertTitle="Incorrect!";
+                countDownTimer.cancel();
+            }
         }
+
+
 
         //create dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
