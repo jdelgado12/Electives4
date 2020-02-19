@@ -20,12 +20,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/dk"
+            android:gravity="center"
+            android:text="Select a game mode"
+            android:textSize="30sp" />
+
         <Button
             android:id="@+id/soloBtn"
             android:layout_width="250dp"
             android:layout_height="105dp"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:background="#FFFFFF"
             android:fontFamily="@font/dk"
             android:foregroundGravity="center"
@@ -57,5 +67,6 @@
             android:text="Back to Home"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

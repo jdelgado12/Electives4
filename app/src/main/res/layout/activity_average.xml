@@ -20,22 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/audioBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="106dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="106dp"
-            android:layout_marginBottom="22dp"
-            android:background="@drawable/audiobtn"
-            android:onClick="playAudio"
-            app:layout_constraintBottom_toTopOf="@+id/qLabel"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/timer2" />
-
         <!--        <ImageView-->
 <!--            android:id="@+id/imageView4"-->
 <!--            android:layout_width="wrap_content"-->
@@ -48,6 +32,40 @@
 <!--            app:layout_constraintStart_toStartOf="parent"-->
 <!--            app:layout_constraintTop_toBottomOf="@+id/label"-->
 <!--            app:srcCompat="@drawable/audio" />-->
+
+        <Button
+            android:id="@+id/audioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="106dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="106dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/audiobtn"
+            android:onClick="playAudio"
+            app:layout_constraintBottom_toTopOf="@+id/qLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timer2" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="1dp"
+            android:fontFamily="@font/dk"
+            android:gravity="center"
+            android:text="(TAP THE SPEAKER TO LISTEN  TO THE PRONUNCIATION)"
+            android:textColor="#9E000000"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/audioBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timer2" />
 
         <TextView
             android:id="@+id/label"
@@ -75,11 +93,28 @@
             android:fontFamily="@font/dk"
             android:gravity="center"
             android:text="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum "
+            android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/audioBtn" />
+
+        <TextView
+            android:id="@+id/timer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="154dp"
+            android:layout_marginEnd="154dp"
+            android:layout_marginBottom="9dp"
+            android:fontFamily="@font/dk"
+            android:text="01:00"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/audioBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label" />
 
         <LinearLayout
             android:layout_width="339dp"
@@ -141,22 +176,6 @@
                 android:textColor="#FFFFFF"
                 android:textSize="25sp" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/timer2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="154dp"
-            android:layout_marginEnd="154dp"
-            android:layout_marginBottom="9dp"
-            android:fontFamily="@font/dk"
-            android:text="01:00"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/audioBtn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

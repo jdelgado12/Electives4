@@ -7,39 +7,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Lobby extends AppCompatActivity {
+public class Room extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lobby);
-        final Button joinAct =(Button)findViewById(R.id.joinBtn);
-        final Button createAct =(Button)findViewById(R.id.createBtn);
-        final Button backAct =(Button)findViewById(R.id.backBtn);
+        setContentView(R.layout.activity_room);
+        final Button startAct =(Button)findViewById(R.id.startBtn);
+        final Button leaveAct =(Button)findViewById(R.id.backBtn);
 
-        joinAct.setOnClickListener(new View.OnClickListener() {
+        startAct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent playIntent = new Intent(Lobby.this,Room.class);
+                Intent playIntent = new Intent(Room.this,Room.class);
                 startActivity(playIntent);
 
             }
         });
 
-        createAct.setOnClickListener(new View.OnClickListener() {
+        leaveAct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent aboutIntent = new Intent(Lobby.this,Room.class);
+                Intent aboutIntent = new Intent(Room.this,Lobby.class);
                 startActivity(aboutIntent);
-            }
-        });
-
-
-        backAct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent howIntent = new Intent(Lobby.this,selectMode.class);
-                startActivity(howIntent);
             }
         });
     }
@@ -49,7 +39,7 @@ public class Lobby extends AppCompatActivity {
     {
         super.onBackPressed(); // this can go before or after your stuff below
         // do your stuff when the back button is pressed
-        Intent intent = new Intent(getApplicationContext(), selectMode.class);
+        Intent intent = new Intent(getApplicationContext(), Lobby.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
