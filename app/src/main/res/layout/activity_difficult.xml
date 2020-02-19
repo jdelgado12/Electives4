@@ -68,9 +68,9 @@
             android:ems="10"
             android:fontFamily="@font/dk"
             android:gravity="center"
+            android:hint="Enter answer here"
             android:inputType="textNoSuggestions"
-            android:textSize="25sp"
-            />
+            android:textSize="25sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

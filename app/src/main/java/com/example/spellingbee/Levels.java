@@ -485,7 +485,7 @@ public class Levels extends AppCompatActivity {
     {
         super.onBackPressed(); // this can go before or after your stuff below
         // do your stuff when the back button is pressed
-        Intent intent = new Intent(getApplicationContext(), Home.class);
+        Intent intent = new Intent(getApplicationContext(), selectMode.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

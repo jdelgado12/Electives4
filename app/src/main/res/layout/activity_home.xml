@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="354dp"
-        android:layout_height="400dp"
+        android:layout_height="410dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="34dp"
         android:layout_marginEnd="5dp"
@@ -33,12 +33,24 @@
             android:text="Play Game"
             android:textSize="35sp" />
 
+<!--        <Button-->
+<!--            android:id="@+id/multiBtn"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="55dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:background="#FFFFFF"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:gravity="center"-->
+<!--            android:fontFamily="@font/dk"-->
+<!--            android:text="Competitive Mode"-->
+<!--            android:textSize="30sp" />-->
+
         <Button
             android:id="@+id/howToPlayBtn"
             android:layout_width="200dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:background="#FFFFFF"
             android:fontFamily="@font/dk"
             android:text="How To Play"
@@ -49,7 +61,7 @@
             android:layout_width="200dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:background="#FFFFFF"
             android:fontFamily="@font/dk"
             android:text="About Us"
@@ -71,7 +83,7 @@
             android:layout_width="200dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:background="#FFFFFF"
             android:fontFamily="@font/dk"
             android:text="Exit Game"

@@ -42,7 +42,7 @@ public class Easy1 extends AppCompatActivity {
     String quizData[][]={
             //words, right answer, wrong answer
             {"acommodate" , "incorrect" , "correct", "Accommodate"},
-            {"onomatopeia" , "Correct" , "Incorrect", "Onomatopoeia"},
+            {"onomatopeia" , "Incorrect" , "Correct", "Onomatopoeia"},
             {"nauseous" , "correct" , "incorrect" , "Nauseous"},
             {"paraphernalia" , "correct" , "incorrect", "Paraphernalia"},
             {"entreprenure" , "incorrect" , "correct", "Entrepreneur"},

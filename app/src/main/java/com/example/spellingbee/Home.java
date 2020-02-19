@@ -25,7 +25,7 @@ public class Home extends AppCompatActivity{
         playGameAct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent playIntent = new Intent(Home.this,Levels.class);
+                Intent playIntent = new Intent(Home.this,selectMode.class);
                 startActivity(playIntent);
 
             }
