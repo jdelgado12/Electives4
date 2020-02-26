@@ -404,7 +404,7 @@ public class Levels extends AppCompatActivity {
                 LevelEditor.apply();
 
                 mp.start();
-                Intent average1Intent = new Intent(Levels.this,Difficult.class);
+                Intent average1Intent = new Intent(Levels.this,tuts_dif1.class);
                 startActivity(average1Intent);
             }
         });

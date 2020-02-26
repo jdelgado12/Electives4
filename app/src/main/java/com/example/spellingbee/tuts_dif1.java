@@ -6,14 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 
-public class tuts_ave1 extends AppCompatActivity {
+public class tuts_dif1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tuts_ave1);
+        setContentView(R.layout.activity_tuts_dif1);
     }
-
     float x1,x2,y1,y2;
     public boolean onTouchEvent(MotionEvent touchevent){
         switch (touchevent.getAction()){
@@ -26,7 +25,7 @@ public class tuts_ave1 extends AppCompatActivity {
                 x2 = touchevent.getX();
                 y2 = touchevent.getY();
                 if(x1 > x2){
-                    Intent i = new Intent(tuts_ave1.this, tuts_ave2.class);
+                    Intent i = new Intent(tuts_dif1.this, tuts_dif2.class);
                     startActivity(i);
                 }
                 break;
@@ -50,4 +49,5 @@ public class tuts_ave1 extends AppCompatActivity {
         // clear your SharedPreferences
         getSharedPreferences("preferenceName",0).edit().clear().commit();
     }
+
 }

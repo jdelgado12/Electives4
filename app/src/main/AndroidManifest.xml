@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".tuts_ave2"></activity>
+        <activity android:name=".tuts_dif2"></activity>
+        <activity android:name=".tuts_dif1" />
+        <activity android:name=".tuts_ave2" />
         <activity android:name=".tuts_ave1" />
         <activity android:name=".tuts_easy2" />
         <activity android:name=".tuts_easy1" />
