@@ -202,6 +202,16 @@ public class Difficult extends AppCompatActivity {
         try {
             mediaPlayer = MediaPlayer.create(getApplicationContext(), getResources().getIdentifier(rightAnswer.toLowerCase(), "raw", getPackageName()));
             mediaPlayer.start();
+
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mp) {
+                    mp.reset();
+                    //if reset doesnt give you what you need use mp.release() instead
+                    //but dont forget to call MediaPlayer.create
+                    //before next mediaPlayer.start() method
+
+                }
+            });
         } catch (Exception e){
             Log.d(getLocalClassName(), "prolly no audio file");
         }

@@ -34,7 +34,7 @@ public class Average extends AppCompatActivity {
     private int quizCount =1;
     static final private int QUIZ_COUNT=3;
 
-    private static final long COUNTDOWN_IN_MILLIS = 60000;
+    private static final long COUNTDOWN_IN_MILLIS = 20000;
     private TextView countDown;
     private ColorStateList textColorDefaultcd;
     private CountDownTimer countDownTimer;
@@ -153,6 +153,7 @@ public class Average extends AppCompatActivity {
         // Resets mp
         if(mediaPlayer != null){
             mediaPlayer.reset();
+
         }
 
         //update quizCountLabel
@@ -224,10 +225,22 @@ public class Average extends AppCompatActivity {
         try {
             mediaPlayer = MediaPlayer.create(getApplicationContext(), getResources().getIdentifier(rightAnswer.toLowerCase(), "raw", getPackageName()));
             mediaPlayer.start();
+
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                public void onCompletion(MediaPlayer mp) {
+                    mp.reset();
+                    //if reset doesnt give you what you need use mp.release() instead
+                    //but dont forget to call MediaPlayer.create
+                    //before next mediaPlayer.start() method
+
+                }
+            });
+
         } catch (Exception e){
             Log.d(getLocalClassName(), "prolly no audio file");
         }
     }
+
 
     public void checkAnswer(View view){
 

@@ -13,8 +13,8 @@ public class selectMode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_mode);
-        Intent svc=new Intent(this, BackgroundSoundService.class);
-        startService(svc);
+//        Intent svc=new Intent(this, BackgroundSoundService.class);
+//        startService(svc);
         final Button soloGame =(Button)findViewById(R.id.soloBtn);
         final Button multiGame =(Button)findViewById(R.id.multiBtn);
         final Button backAct =(Button)findViewById(R.id.backBtn);

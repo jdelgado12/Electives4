@@ -136,7 +136,7 @@
                 android:backgroundTint="#FFC914"
                 android:fontFamily="@font/dk"
                 android:onClick="checkAnswer"
-                android:text="Button"
+                android:text="Apple"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp" />
 
@@ -148,7 +148,7 @@
                 android:backgroundTint="#FFC914"
                 android:fontFamily="@font/dk"
                 android:onClick="checkAnswer"
-                android:text="Button"
+                android:text="Aple"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp" />
 
@@ -160,7 +160,7 @@
                 android:backgroundTint="#FFC914"
                 android:fontFamily="@font/dk"
                 android:onClick="checkAnswer"
-                android:text="Button"
+                android:text="Appel"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp" />
 
@@ -172,7 +172,7 @@
                 android:backgroundTint="#FFC914"
                 android:fontFamily="@font/dk"
                 android:onClick="checkAnswer"
-                android:text="Button"
+                android:text="Appple"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp" />
         </LinearLayout>

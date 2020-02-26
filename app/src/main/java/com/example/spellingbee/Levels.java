@@ -21,8 +21,8 @@ public class Levels extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_levels);
-        Intent svc=new Intent(this, BackgroundSoundService.class);
-        stopService(svc);
+//        Intent svc=new Intent(this, BackgroundSoundService.class);
+//        stopService(svc);
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.click);
 
         Button firstEasy = (Button)findViewById(R.id.easy_1);
@@ -228,7 +228,7 @@ public class Levels extends AppCompatActivity {
                 LevelEditor.apply();
 
                 mp.start();
-                Intent easy1Intent = new Intent(Levels.this,Easy1.class);
+                Intent easy1Intent = new Intent(Levels.this,tuts_easy1.class);
                 startActivity(easy1Intent);
 
             }
@@ -319,7 +319,7 @@ public class Levels extends AppCompatActivity {
                 LevelEditor.apply();
 
                 mp.start();
-                Intent average1Intent = new Intent(Levels.this,Average.class);
+                Intent average1Intent = new Intent(Levels.this,tuts_ave1.class);
                 startActivity(average1Intent);
             }
         });
