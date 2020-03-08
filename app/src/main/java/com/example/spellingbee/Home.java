@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.view.View;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 public class Home extends AppCompatActivity{

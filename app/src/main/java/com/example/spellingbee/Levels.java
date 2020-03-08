@@ -9,12 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.logging.Handler;
 import java.util.logging.Level;
 
 public class Levels extends AppCompatActivity {
     private int chosenLVL, LVL2_unlocked, LVL3_unlocked, LVL4_unlocked, LVL5_unlocked, LVL6_unlocked,
             LVL7_unlocked, LVL8_unlocked, LVL9_unlocked, LVL10_unlocked, LVL11_unlocked, LVL12_unlocked,
-            LVL13_unlocked, LVL14_unlocked, LVL15_unlocked, LVL16_unlocked, LVL17_unlocked, LVL18_unlocked;
+            LVL13_unlocked, LVL14_unlocked, LVL15_unlocked, LVL16_unlocked, LVL17_unlocked, LVL18_unlocked, congrats;
 
     public static String levelUnlock;
     @Override
@@ -24,6 +25,7 @@ public class Levels extends AppCompatActivity {
 //        Intent svc=new Intent(this, BackgroundSoundService.class);
 //        stopService(svc);
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.click);
+        final Button backAct =(Button)findViewById(R.id.backBtn);
 
         Button firstEasy = (Button)findViewById(R.id.easy_1);
         Button secondEasy = (Button)findViewById(R.id.easy_2);
@@ -63,6 +65,7 @@ public class Levels extends AppCompatActivity {
         LVL16_unlocked = sharedPreferences.getInt("LVL16_unlocked", 0);
         LVL17_unlocked = sharedPreferences.getInt("LVL17_unlocked", 0);
         LVL18_unlocked = sharedPreferences.getInt("LVL18_unlocked", 0);
+        congrats = sharedPreferences.getInt("congrats", 0);
 
         if(LVL2_unlocked == 0) {
             secondEasy.setEnabled(false);
@@ -217,6 +220,7 @@ public class Levels extends AppCompatActivity {
             sixthDif.setEnabled(true);
             sixthDif.setAlpha(1f);
         }
+
 
 
         firstEasy.setOnClickListener(new View.OnClickListener() {
@@ -476,6 +480,16 @@ public class Levels extends AppCompatActivity {
                 mp.start();
                 Intent average1Intent = new Intent(Levels.this,Difficult.class);
                 startActivity(average1Intent);
+
+            }
+        });
+
+        backAct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent aboutIntent = new Intent(Levels.this,selectMode.class);
+                startActivity(aboutIntent);
+
             }
         });
     }

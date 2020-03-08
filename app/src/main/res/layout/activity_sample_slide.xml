@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgbee"
+    android:orientation="vertical"
+    tools:context=".sample_slide">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="505dp">
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <Button
+        android:id="@+id/startBtn"
+        android:layout_width="213dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="112dp"
+        android:backgroundTint="#F63454"
+        android:fontFamily="@font/dk"
+        android:text="LEVEL 1"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</LinearLayout>

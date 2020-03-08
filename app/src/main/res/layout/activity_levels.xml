@@ -7,18 +7,35 @@
     android:background="@drawable/bgbee1"
     tools:context=".Levels">
 
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="130dp"
+        android:layout_marginEnd="131dp"
+        android:backgroundTint="#FF4B3E"
+        android:fontFamily="@font/dk"
+        android:text="Back"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="300dp"
         android:layout_height="540dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="52dp"
         android:background="@drawable/white_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/backBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <TableRow
             android:layout_width="match_parent"
@@ -55,17 +72,19 @@
                 android:backgroundTint="#FFC15E"
                 android:fontFamily="@font/dk"
                 android:text="1"
-                android:textSize="20sp" />
+                android:textColor="#fff5e5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/easy_2"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="2"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/easy_3"
@@ -76,7 +95,8 @@
                 android:backgroundTint="#FFC15E"
                 android:fontFamily="@font/dk"
                 android:text="3"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
         </TableRow>
 
@@ -89,20 +109,22 @@
                 android:layout_width="80dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="4"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/easy_5"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_marginLeft="15dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="5"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/easy_6"
@@ -110,10 +132,11 @@
                 android:layout_height="70dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="6"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
         </TableRow>
 
         <TableRow
@@ -136,6 +159,7 @@
                 android:fontFamily="@font/dk"
                 android:paddingLeft="20dp"
                 android:text="Average"
+                android:textColor="#77000000"
                 android:textSize="30sp" />
         </TableRow>
 
@@ -148,20 +172,22 @@
                 android:layout_width="80dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="7"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/ave_2"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="8"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/ave_3"
@@ -170,10 +196,11 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="10dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="9"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
         </TableRow>
 
@@ -186,20 +213,22 @@
                 android:layout_width="80dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="10"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/ave_5"
                 android:layout_width="80dp"
                 android:layout_height="70dp"
                 android:layout_marginLeft="15dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="11"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/ave_6"
@@ -208,10 +237,11 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="10dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="12"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
         </TableRow>
 
         <TableRow
@@ -246,20 +276,22 @@
                 android:layout_width="80dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="13"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/dif_2"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="14"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/dif_3"
@@ -268,10 +300,11 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="10dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="15"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
         </TableRow>
 
@@ -284,20 +317,22 @@
                 android:layout_width="80dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="10dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="16"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/dif_5"
                 android:layout_width="80dp"
                 android:layout_height="70dp"
                 android:layout_marginLeft="15dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="17"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/dif_6"
@@ -306,10 +341,11 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginRight="10dp"
-                android:fontFamily="@font/dk"
                 android:backgroundTint="#FFC15E"
+                android:fontFamily="@font/dk"
                 android:text="18"
-                android:textSize="20sp" />
+                android:textColor="#FFF5E5"
+                android:textSize="30sp" />
         </TableRow>
 
     </TableLayout>
@@ -319,13 +355,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="66dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="84dp"
-        android:layout_marginBottom="24dp"
         android:fontFamily="@font/dk"
         android:text="Select a Level"
         android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

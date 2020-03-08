@@ -41,6 +41,7 @@ public class selectMode extends AppCompatActivity {
             public void onClick(View v) {
                 Intent aboutIntent = new Intent(selectMode.this,Home.class);
                 startActivity(aboutIntent);
+
             }
         });
     }

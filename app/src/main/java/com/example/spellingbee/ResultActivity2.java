@@ -108,6 +108,12 @@ private int chosenLVL;
                 levelEditor.commit();
                 levelEditor.apply();
             }
+            else if (chosenLVL == 18) {
+                SharedPreferences.Editor levelEditor = getSharedPreferences(Levels.levelUnlock, MODE_PRIVATE).edit();
+                levelEditor.putInt("LVL18_unlocked", 1);
+                Intent intent = new Intent(ResultActivity2.this, congrats.class);
+                startActivity(intent);
+            }
         }
 
         final Button playGameAct =(Button)findViewById(R.id.BackBtn);

@@ -9,16 +9,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".tuts_dif2"></activity>
-        <activity android:name=".tuts_dif1" />
-        <activity android:name=".tuts_ave2" />
-        <activity android:name=".tuts_ave1" />
-        <activity android:name=".tuts_easy2" />
+        <activity android:name=".congrats"></activity>
+        <activity android:name=".sample_slide" />
+        <activity
+            android:name=".tuts_dif2"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".tuts_dif1"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".tuts_ave2"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".tuts_ave1"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".tuts_easy2"
+            android:screenOrientation="sensorPortrait" />
         <activity android:name=".tuts_easy1" />
-        <activity android:name=".Room" />
-        <activity android:name=".Lobby" />
-        <activity android:name=".selectMode" />
-        <activity android:name=".resetConfirm" />
+        <activity
+            android:name=".Room"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".Lobby"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".selectMode"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".resetConfirm"
+            android:screenOrientation="sensorPortrait" />
 
         <service
             android:name=".MusicService"

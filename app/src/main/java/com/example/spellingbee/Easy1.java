@@ -133,7 +133,6 @@ public class Easy1 extends AppCompatActivity {
             tmpArray.add(quizData[i][1]); //right answer
             tmpArray.add(quizData[i][2]); //wrong answer
 
-
             //add tmpArray to quizArray
             quizArray.add(tmpArray);
         }
@@ -248,6 +247,7 @@ public class Easy1 extends AppCompatActivity {
                     //Show resullt
                     Intent intent =new Intent(getApplicationContext(), ResultActivity.class);
                     intent.putExtra("RIGHT_ANSWER_COUNT", rightAnswerCount);
+
                     startActivity(intent);
                 }
                 else{

@@ -50,6 +50,7 @@
             android:fontFamily="@font/dk"
             android:gravity="center"
             android:text="(TAP THE SPEAKER TO LISTEN TO THE PRONUNCIATION)"
+            android:textColor="#FF4B3E"
             android:textSize="18sp" />
 
         <Button
@@ -68,7 +69,7 @@
             android:gravity="center"
             android:text="Lorem Ipsum Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum"
             android:textColor="#000000"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
         <EditText
             android:id="@+id/editTextInput"
